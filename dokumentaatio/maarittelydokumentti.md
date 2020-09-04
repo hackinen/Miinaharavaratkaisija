@@ -6,6 +6,6 @@ Todennäköisesti ohjelmalle tullaan antamaan syötteenä kentän koko ja esimer
 
 Työn laajuudessa on tarkoitus päästä siihen asti, että ratkaisija kykenee ratkaisemaan minkä tahansa sille annetun miinaharavapelin, mikäli se on ratkaistavissa ilman arvauksia (ja poislukien erittäin suurikokoiset kentät, sillä aikavaativuus voi tulla tässä vastaan).
 
-## aikavaativuus
+## Aikavaativuus
 
 Aikavaativuus tulee erittäin todennäköisesti olemaan sen verran suuri, että vaikutuksen alkaa näkemään jo isommissa kentissä. Tämän takia ratkaisijan toiminta tulee hyvin todennäköisesti rajoittumaan pienempiin kenttiin.
