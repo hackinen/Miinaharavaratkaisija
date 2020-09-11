@@ -11,9 +11,15 @@ Alkuperäisestä suunnitelmasta poiketen on kaikki ohjelmakoodi ja siihen liitty
 
 Testauksessa en ajan puutteen vuoksi ole edennyt vielä ollenkaan, mutta siitä on myös tarkoitus aloittaa  ensimmäisten asioiden joukossa ensi viikolla, jolloin toivon mukaan tälle harjoitustyölle olisi enemmän aikaa käytettävänä.
 
-Tällä viikolla opin gradle-projektin rakenteesta ja 
+Tällä viikolla opin gradle-projektin rakenteesta jonkin verran. Epäselväksi jäi vielä checkstylen ja javadocin saaminen projektin yhteyteen, sillä kurssisivulta sekä netistä löytyviä ohjeita noudattaessani molemmissa tapauksissa komentojen "gradle check" ja "gradle javadoc" suorittaminen aiheuttaa jonkin javafx:n liittyvän (?) virheen:
+
+```java.lang.NoSuchMethodError: 'org.gradle.api.Task org.gradle.api.tasks.TaskContainer.create(java.lang.String, java.lang.Class, java.lang.Object[])'
+        at org.openjfx.gradle.JavaFXPlugin.apply(JavaFXPlugin.java:47)
+```
+
+Jacocon sain toimimaan, mutta nuo kaksi edellämainittua aiheuttavat vieläkin päänvaivaa, sillä en saanut tuota virhettä vielä häviämään.
 
 
 ## Ajankäyttö
 
-Aikaa tähän mennessä tällä viikolla on kulunut 6h.
+Aikaa projektin parissa on tällä viikolla kulunut 15h.
