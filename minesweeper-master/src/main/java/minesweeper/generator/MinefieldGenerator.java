@@ -8,7 +8,9 @@ import minesweeper.model.Board;
 import minesweeper.model.Pair;
 
 /**
+ * 
  * Generator for initializing board with mines
+ * 
  */
 public class MinefieldGenerator {
     private boolean seedSet = false;
