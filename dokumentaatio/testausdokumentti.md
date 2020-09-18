@@ -8,4 +8,4 @@ Tällä hetkellä olen testannut luokkiani MyBot ja BotLogic, joiden testikattav
 
 ### Testauskattavuus
 
-<img src="" width="750">
+<img src="https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/misc/testikattavuus-vko3.png" width="750">
