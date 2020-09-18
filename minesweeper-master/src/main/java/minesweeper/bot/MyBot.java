@@ -75,7 +75,7 @@ public class MyBot implements Bot {
                                                     continue;
                                                 }
                                                 if (!squares2[n][k].isOpened() && !squares2[n][k].isFlagged()) {
-                                                    return new Move (MoveType.OPEN,number_X+n-1,number_Y+k-1);
+                                                    return new Move(MoveType.OPEN, number_X + n - 1, number_Y + k - 1);
                                                 }
                                             }
                                         }
@@ -95,7 +95,7 @@ public class MyBot implements Bot {
                                                     continue;
                                                 }
                                                 if (!squares2[n][k].isOpened() && !squares2[n][k].isFlagged()) {
-                                                    return new Move(MoveType.FLAG,number_X+n-1,number_Y+k-1);
+                                                    return new Move(MoveType.FLAG, number_X + n - 1, number_Y + k - 1);
                                                 }
                                             }
                                         }
@@ -109,7 +109,7 @@ public class MyBot implements Bot {
         
         }
         
-        return new Move(MoveType.OPEN,0,0);
+        return new Move(MoveType.OPEN, 0, 0);
 
         
     }

@@ -41,8 +41,8 @@ public class BotLogic {
     
     /**
      * A method for finding the surrounding squares of (x,y)
-     * @param x
-     * @param y
+     * @param x x-coordinate
+     * @param y y-coordinate
      * @param board
      * @return Square[][], a grid of the surrounding squares, (x,y) in the middle
      */
@@ -56,10 +56,10 @@ public class BotLogic {
         for (int i = x - 1; i < x + 2; i++) {
             for (int j = y - 1; j < y + 2; j++) {
                 if (i < 0 || j < 0 || i >= board.width || j >= board.height) {
-                    squares[i-x+1][j-y+1] = null;
+                    squares[i - x + 1][j - y + 1] = null;
                     continue;
                 }
-                squares[i-x+1][j-y+1] = board.getSquareAt(i, j);
+                squares[i - x + 1][j - y + 1] = board.getSquareAt(i, j);
             }
         }
         
@@ -96,7 +96,7 @@ public class BotLogic {
     /**
      * A method for counting the unopened squares around this square
      * 
-     * @param squares a grid of squares
+     * @param squares a 3x3 grid of squares
      * @return the number of unopened squares surrounding this square
      */
     public int countUnopenedSurroundingSquares(Square[][] squares) {
@@ -139,4 +139,32 @@ public class BotLogic {
         
         return flagged;
     }
+    
+    /**
+     * Returns an opening move on the first unopened square that the method
+     * finds surrounding (x,y) IF the number of flagsaround the square in (x,y)
+     * match the number on the square
+     * @param numberOnSquare the number on the square in (x,y)
+     * @param x x-coordinate of the opened (numbered) cell on the gameboard
+     * @param y y-coordinate of the opened (numbered) cell on the gameboard
+     * @param squares a 3x3 grid of squares surrounding the square in (x,y) ((x,y) is in (1,1))
+     * @return opening move to the first unopened square it finds
+     */
+//    public Move openSurroundingSquaresIfRightNumberOfFlags(int numberOnSquare, int x, int y, Square[][] squares) {
+//        int flags = countFlaggedSurroundingSquares(squares);
+//                                    
+//        if (flags == numberOnSquare) {
+//            //If flags matched the number on the square, we can open all the surrounding unopened squares
+//            for (int n = 0; n < 3; n++) {
+//                for (int k = 0; k < 3; k++) {
+//                    if (squares[n][k] == null) {
+//                        continue;
+//                    }
+//                    if (!squares[n][k].isOpened() && !squares[n][k].isFlagged()) {
+//                        return new Move (MoveType.OPEN,x+n-1,y+k-1);
+//                    }
+//                }
+//            }
+//        }
+//    }
 }
