@@ -130,7 +130,7 @@ public class BotLogic {
                 if (squares[i][j] == null || (i == 1 && j == 1)) {
                     continue;
                 }
-                if (!squares[i][j].isFlagged()) {
+                if (squares[i][j].isFlagged()) {
                     flagged++;
                 }
                 

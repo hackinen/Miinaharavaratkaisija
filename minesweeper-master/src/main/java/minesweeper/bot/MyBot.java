@@ -25,7 +25,7 @@ public class MyBot implements Bot {
     private BotLogic bl;
 
     /**
-     * Make a single decision based on the given Board state
+     * Makes a single decision based on the given Board state
      * @param board The current board state
      * @return Move to be made onto the board
      */
@@ -36,13 +36,12 @@ public class MyBot implements Bot {
         
         for (int i = 0; i < board.width; i++) {
             for (int j = 0; j < board.height; j++) {
-                System.out.println("Taulukon indeksit ennen valintaa: ("+i+","+j+").");
-                //Find an unopened square
+                //Find an unopened square (i,j)
                 if (!board.getSquareAt(i, j).isOpened()) {
                     
-                    //Find out if there is an opened square in the surrounding squares
+                    //Find out if there is an opened square (x,y) in the surrounding squares 
                     Square[][] squares = bl.getSurroundingSquares(i, j);
-                    System.out.println("Avaamattoman ruudun indeksit: ("+i+","+j+").");
+                    
                     for (int x = 0; x < 3; x++) {
                         for (int y = 0; y < 3; y++) {
                             
@@ -52,20 +51,23 @@ public class MyBot implements Bot {
                             
                             //Find out if we can deduce something about this opened square
                             if (squares[x][y].isOpened()) {
+                                
+                                // (number_X,number_Y) is the opened squares's location on the board
                                 int number_X = i + x - 1;
                                 int number_Y = j + y - 1;
                                 
-                                System.out.println("Avatun ruudun indeksit: ("+number_X+","+number_Y+").");
+                                //the number on the opened square
                                 int number = squares[x][y].surroundingMines();
+                                
+                                //the surrounding squares around square (number_X,number_Y)
                                 Square[][] squares2 = bl.getSurroundingSquares(number_X, number_Y);
+                                
                                 
                                 //Check if surrounding flags match the number on the square
                                 if (number > 0) {
                                     int flags = bl.countFlaggedSurroundingSquares(squares2);
-                                    System.out.println("Number: "+number);
-                                    System.out.println("Flags: "+flags);
+                                    
                                     if (flags == number) {
-                                        System.out.println("LÖYTYI OIKEA MÄÄRÄ LIPPUJA!");
                                         //If flags matched the number on the square, we can open all the surrounding unopened squares
                                         for (int n = 0; n < 3; n++) {
                                             for (int k = 0; k < 3; k++) {
