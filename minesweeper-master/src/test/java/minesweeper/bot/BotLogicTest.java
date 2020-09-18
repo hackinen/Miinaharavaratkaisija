@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
+import static org.junit.Assert.*;
 
 import minesweeper.bot.*;
 import minesweeper.generator.MinefieldGenerator;
@@ -23,9 +23,16 @@ import minesweeper.model.*;
 public class BotLogicTest {
     private Board board;
     private MinefieldGenerator generator;
+    private BotLogic bl;
     
-    public BotLogicTest() {
+    
+    @Before
+    public void setUp() {
         this.board = new Board(generator, 9, 9, 1);
+        this.bl = new BotLogic(this.board);
+    }
+    public BotLogicTest() {
+        
     }
     
     @BeforeClass
@@ -36,17 +43,25 @@ public class BotLogicTest {
     public static void tearDownClass() {
     }
     
-    @Before
-    public void setUp() {
-    }
+    
     
     @After
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+//    @Test
+//    public void getSurroundingSquaresMethodReturnsTheRightSquares() {
+//        Square[][] originalSquares = new Square[3][3];
+//      
+//        //add top left corner squares
+//        for (int i = 0; i < 3; i++) {
+//            for (int j = 0; j < 3; j++) {
+//                originalSquares[i][j] = board.getSquareAt(i, j);
+//            }
+//        }
+//        
+//        Square[][] methodSquares = bl.getSurroundingSquares(1, 1);
+//        
+//        AssertEquals(methodSquares,originalSquares);
+//    }
 }
