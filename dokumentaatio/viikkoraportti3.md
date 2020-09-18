@@ -12,4 +12,4 @@ Tällä hetkellä projektissa minun tekemiä osa-alueita ovat minesweeper.bot-pa
 
 ## Ajankäyttö
 
-Aikaa tällä viikolla on tähän mennessä kulunut 15h.
+Aikaa tällä viikolla kului 15h.
