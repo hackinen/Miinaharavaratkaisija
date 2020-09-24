@@ -101,6 +101,8 @@ public class MyBot implements Bot {
                                         }
                                     }
                                 }
+                                
+                                
                             }
                         }
                     }
@@ -108,6 +110,26 @@ public class MyBot implements Bot {
             }
         
         }
+        
+        //Try to deduce if can place a flag or not
+        
+        //A copy of the gameboard:
+        //  0-8 - opened, number of surrounding mines
+        //  9 - flagged
+        //  10- unopened
+        int[][] grid = bl.getCopyOfBoard(board);
+        
+        //backtracking
+        for (int i = 0; i < grid[0].length; i++) {
+            for (int j = 0; j < grid.length; j++) {
+                
+                //find an unopened cell that has an opened cell as its neigbour
+                if (grid[i][j] == 10) {
+                    
+                }
+            }
+        }
+       
         
         return new Move(MoveType.OPEN, 0, 0);
 

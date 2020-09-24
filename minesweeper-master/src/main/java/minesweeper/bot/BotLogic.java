@@ -140,6 +140,71 @@ public class BotLogic {
         return flagged;
     }
     
+    
+    /**
+     * A method for copying the current state of the game into a simple int[][] grid:
+     * numbers 0-8 equal the openeded squares' numbers, number 9 equals a flag
+     * and number 10 equals a square that has not yet been opened or flagged
+     * @param board - the gameboard at its current state
+     * @return grid - int[][]
+     */
+    public int[][] getCopyOfBoard(Board board) {
+        int[][] grid = new int[board.width][board.height];
+        
+        for (int i = 0; i < board.width; i++) {
+            for (int j = 0; j < board.height; j++) {
+                
+                Square square = board.getSquareAt(i, j);
+                
+                if (square.isOpened()) {
+                    grid[i][j] = square.surroundingMines();
+                }
+                
+                else if (square.isFlagged()) {
+                    grid[i][j] = 9;
+                }
+                
+                else {
+                    grid[i][j] = 10;
+                }
+                
+            }
+        }
+        
+        return grid;
+    }
+    
+    /**
+     * Returns the values in the cells surrounding (x,y)
+     * @param grid - int[][] grid that has been copied from the current board
+     * @param x - x-coordinate of the cell
+     * @param y - y-coordinate of the cell
+     * @return int[][] surroundingCells - 3x3-grid, (x,y) in (1,1)
+     */
+    public int[][] getSurroundingCells(int[][] grid, int x, int y) {
+        
+        if (grid == null || x < 0 || y < 0 || x >= grid[0].length || y >= grid.length) {
+            return null;
+        }
+        
+        
+        int[][] surroundingCells = new int[3][3];
+        
+        for (int i = x - 1; i <= x + 1; i++) {
+            for (int j = y - 1; j <= y + 1; j++) {
+                
+                if (i < 0 || j < 0 || i >= grid[0].length || j >= grid.length) {
+                    surroundingCells[i - x + 1][j - y + 1] = -1;
+                    continue;
+                }
+                
+                surroundingCells[i - x + 1][j - y + 1] = grid[i][j];
+            }
+        }
+        
+        return surroundingCells;
+    }
+    
     /**
      * Returns an opening move on the first unopened square that the method
      * finds surrounding (x,y) IF the number of flagsaround the square in (x,y)

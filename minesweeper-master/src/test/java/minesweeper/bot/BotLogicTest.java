@@ -16,6 +16,7 @@ import static org.junit.Assert.*;
 import minesweeper.bot.*;
 import minesweeper.generator.MinefieldGenerator;
 import minesweeper.model.*;
+import org.junit.Assert;
 /**
  * This test class is completely written by me
  * @author hiira
@@ -47,6 +48,57 @@ public class BotLogicTest {
     
     @After
     public void tearDown() {
+    }
+    
+    @Test
+    public void getCopyOfBoardAddsFlagsAndNumbersCorrectly() {
+        this.board = new Board(generator, 2, 2, 0);
+        this.board.firstMove = false;
+        
+        Square square = new Square(0, 0);
+        square.setMine();
+
+        board.addSquare(square, 0, 0);
+        board.incrementAdjacentSquares(0, 0);
+        board.makeMove(new Move(MoveType.FLAG,0,0));
+        board.makeMove(new Move(MoveType.OPEN,0,1));
+        int[][] grid = {{9,1},{10,10}};
+        
+        Assert.assertArrayEquals(grid,bl.getCopyOfBoard(this.board));
+    }
+    
+    
+    @Test
+    public void getCopyOfBoardAddsZerosCorreclty() {
+        this.board = new Board(generator, 3, 3, 0);
+        this.board.firstMove = false;
+        
+        Square square = new Square(0, 0);
+        square.setMine();
+
+        board.addSquare(square, 0, 0);
+        board.incrementAdjacentSquares(0, 0);
+        board.makeMove(new Move(MoveType.OPEN,2,2));
+        int[][] grid = {{10,1,0},{1,1,0},{0,0,0}};
+        
+        Assert.assertArrayEquals(grid,bl.getCopyOfBoard(this.board));
+    }
+    
+    @Test
+    public void getSurroundingCellsWorks() {
+        this.board = new Board(generator, 3, 3, 0);
+        this.board.firstMove = false;
+        
+        Square square = new Square(0, 2);
+        square.setMine();
+        board.addSquare(square, 0, 2);
+        board.incrementAdjacentSquares(0, 2);
+        board.makeMove(new Move(MoveType.OPEN,0,1));
+        
+        int[][] bigGrid = bl.getCopyOfBoard(board);
+        int[][] grid = {{-1,-1,-1},{-1,10,1},{-1,10,10}};
+        
+        Assert.assertArrayEquals(grid, bl.getSurroundingCells(bigGrid, 0, 0));
     }
 
 //    @Test
