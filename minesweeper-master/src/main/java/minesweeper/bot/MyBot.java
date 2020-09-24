@@ -125,7 +125,17 @@ public class MyBot implements Bot {
                 
                 //find an unopened cell that has an opened cell as its neigbour
                 if (grid[i][j] == 10) {
+                    int[][] surroundingCells = bl.getSurroundingCells(grid, i, j);
                     
+                    for (int ii = 0; ii < 3; ii++) {
+                        for (int jj = 0; jj < 3; jj++) {
+                            
+                            if (surroundingCells[ii][jj] > -1 && surroundingCells[ii][jj] < 9) {
+                                
+                                //TÄNNE SE REKURSIO LOLLLLL
+                            }
+                        }
+                    }
                 }
             }
         }

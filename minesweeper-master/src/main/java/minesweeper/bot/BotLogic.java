@@ -20,25 +20,6 @@ public class BotLogic {
         this.board = board;
     }
     
-    
-    
-    public Square[][] getBorderSquare() {
-        Square[][] squares = new Square[2][2];
-        
-        for (int i = 0; i < board.width; i++) {
-            for (int j = 0; j < board.height; j++) {
-                squares = this.getSurroundingSquares(i, j);
-                
-                if (this.isABorderSquare(squares)) {
-                    return squares;
-                }
-            }
-        }
-        
-        return null;
-    } 
-        
-    
     /**
      * A method for finding the surrounding squares of (x,y)
      * @param x x-coordinate
@@ -66,32 +47,6 @@ public class BotLogic {
         return squares;
         
     }
-    
-    /**
-     * Method for identifying the "border squares" - unopened square that
-     * has opened squares surrounding them
-     * @param squares
-     * @return true - if square is a bordersquare
-     *          false - if not
-     */
-    public boolean isABorderSquare(Square[][] squares) {
-       
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (squares[i][j] == null) {
-                    continue;
-                }
-                if (i != 1 && j != 1 && !squares[i][j].isOpened()) {
-                    return true;
-                }
-            }
-                
-        }
-        
-        return false;
-       
-    }
-    
     
     /**
      * A method for counting the unopened squares around this square
@@ -182,11 +137,9 @@ public class BotLogic {
      * @return int[][] surroundingCells - 3x3-grid, (x,y) in (1,1)
      */
     public int[][] getSurroundingCells(int[][] grid, int x, int y) {
-        
         if (grid == null || x < 0 || y < 0 || x >= grid[0].length || y >= grid.length) {
             return null;
         }
-        
         
         int[][] surroundingCells = new int[3][3];
         
@@ -203,6 +156,50 @@ public class BotLogic {
         }
         
         return surroundingCells;
+    }
+    
+    /**
+     * Method for counting how many flags surround this cell
+     * @param cells - 3x3 int[][]-grid
+     * @return int - number of flags
+     */
+    public int countFlagsSurroundingCell(int[][] cells) {
+        int flags = 0;
+        
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (i == 1 && j == 1) {
+                    continue;
+                }
+                if (cells[i][j] == 9) {
+                    flags++;
+                }
+            }
+        }
+        
+        return flags;
+    }
+    
+    /**
+     * Method for counting how many unopened cells surround this cell
+     * @param cells - 3x3 int[][]-grid
+     * @return int - number of unopened cells
+     */
+    public int countUnopenedCellsSurroundingCell(int[][] cells) {
+        int unopened = 0;
+        
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (i == 1 && j == 1) {
+                    continue;
+                }
+                if (cells[i][j] == 10) {
+                    unopened++;
+                }
+            }
+        }
+        
+        return unopened;
     }
     
     /**

@@ -17,6 +17,7 @@ import minesweeper.bot.*;
 import minesweeper.generator.MinefieldGenerator;
 import minesweeper.model.*;
 import org.junit.Assert;
+
 /**
  * This test class is completely written by me
  * @author hiira
@@ -100,6 +101,42 @@ public class BotLogicTest {
         
         Assert.assertArrayEquals(grid, bl.getSurroundingCells(bigGrid, 0, 0));
     }
+    
+    @Test
+    public void countFlagsSurroundingCellWorks() {
+        this.board = new Board(generator, 3, 3, 2);
+        this.board.firstMove = false;
+        
+        board.makeMove(new Move(MoveType.FLAG,0,1));
+        board.makeMove(new Move(MoveType.FLAG,1,1));
+        
+        int[][] bigGrid = bl.getCopyOfBoard(board);
+        int[][] grid = bl.getSurroundingCells(bigGrid, 0, 0);
+        
+        assertEquals(2, bl.countFlagsSurroundingCell(grid));
+    }
+    
+    @Test
+    
+    public void countUnopenedCellsSurroundingCellWorks() {
+        this.board = new Board(generator, 3, 3, 0);
+        this.board.firstMove = false;
+        
+        Square square = new Square(1, 1);
+        square.setMine();
+
+        board.addSquare(square, 1, 1);
+        board.incrementAdjacentSquares(1, 1);
+        
+        board.makeMove(new Move(MoveType.FLAG,1,1));
+        board.makeMove(new Move(MoveType.OPEN,0,1));
+        board.makeMove(new Move(MoveType.OPEN,0,2));
+        
+        int[][] bigGrid = bl.getCopyOfBoard(board);
+        int[][] grid = bl.getSurroundingCells(bigGrid, 0, 1);
+        
+        assertEquals(3, bl.countUnopenedCellsSurroundingCell(grid));
+    }
 
 //    @Test
 //    public void getSurroundingSquaresMethodReturnsTheRightSquares() {
@@ -116,4 +153,5 @@ public class BotLogicTest {
 //        
 //        AssertEquals(methodSquares,originalSquares);
 //    }
+
 }
