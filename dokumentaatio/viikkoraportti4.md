@@ -3,4 +3,4 @@
 ## Eteneminen
 
 ## Ajankäyttö
-Tähän mennessä 2h.
+Tähän mennessä 12h.

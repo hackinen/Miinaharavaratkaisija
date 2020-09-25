@@ -7,6 +7,8 @@ Miinaharavaratkaisija on Java-kielinen ohjelma, joka on toteutettu tietorakentei
 
 [Määrittelydokumentti](https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/maarittelydokumentti.md)
 
+[Toteutusdokumentti](https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/toteutusdokumentti.md)
+
 [Testausdokumentti](https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/testausdokumentti.md)
 
 [Käyttöohje](https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/kaytto-ohje.md)
