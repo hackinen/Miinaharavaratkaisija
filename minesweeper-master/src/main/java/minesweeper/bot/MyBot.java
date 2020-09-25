@@ -167,7 +167,7 @@ public class MyBot implements Bot {
                     //check if there are too many flags
                     if (bl.countFlagsSurroundingCell(neighboursNeighbours) > neighbours[i][j]) {
                         isFlagLegal = false;
-                    } 
+                    }
                 }
                 
             }

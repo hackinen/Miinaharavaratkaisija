@@ -88,7 +88,7 @@ public class MyBotTest {
         assertEquals(true, b2.getSquareAt(1,1).isFlagged());
     }
     */
-    
+    /*
     @Test
     public void testIfBotOpensSurroundingSquaresIfRightNumberOfFlags() {
         Board b2 = new Board(generator,10,10,0);
@@ -107,7 +107,7 @@ public class MyBotTest {
         assertEquals(true, b2.getSquareAt(1, 0).isOpened());
         assertEquals(true, b2.getSquareAt(1,1).isOpened());
     }
-    
+    */
     @Test
     public void myBotCanMakeValidMoves() {
         Move move = this.bot.makeMove(this.board);
