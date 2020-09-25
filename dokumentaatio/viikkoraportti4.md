@@ -8,9 +8,11 @@ Ideana simulaatioalgorimissa on helppojen miinojen ratkaisemisen jälkeen käyd�
 
 En tosiaan vielä deadlinen tullessa vastaan ehtinyt selvittämään, mikä simulaatiossa ei oikein toimi, sillä tällä hetkellä varmojen siirtojen loputtua näyttää siltä, että algoritmi vain arvaa seuraavan siirron tai jäätyy kokonaan eikä tee mitään siirtoa.
 
+Simulaatioalgoritmin myötä ohjelmassa tarvitaan listaa pareista, jota en vielä ole toteuttanut omana tietorakenteenaan vaan listana joka on muotoa ArrayList<Pair>.
+
 ## Testit
 
-Testikattavuus jäi MyBot-luokan osalta tällä viikolla vajaviaseksi, sillä vain 50% luokasta on testtattuna. Jouduin kommentoimaan pois yhden aiemmista testeistä, sillä simulaatiometodia luodessa ja testatessa lakkasi toimimasta, enkä saanut sitä vielä takaisin toimimaan. Lisäksi simulaation toiminnan testit jäivät vielä ajan puutteen vuoksi kokonaan tekemättä. Tämän viikon testikattavuus löytyy [testausdokumentista](https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/testausdokumentti.md).
+Testikattavuus jäi MyBot-luokan osalta tällä viikolla vajavaiseksi, sillä vain 50% luokasta on testtattuna. Jouduin kommentoimaan pois yhden aiemmista testeistä, sillä simulaatiometodia luodessa ja testatessa lakkasi se toimimasta, enkä saanut sitä vielä takaisin toimimaan. Lisäksi simulaation toiminnan testit jäivät vielä ajan puutteen vuoksi kokonaan tekemättä. Tämän viikon testikattavuus löytyy [testausdokumentista](https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/testausdokumentti.md).
 
 ## Ajankäyttö
 
