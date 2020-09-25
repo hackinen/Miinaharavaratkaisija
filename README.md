@@ -19,3 +19,5 @@ Miinaharavaratkaisija on Java-kielinen ohjelma, joka on toteutettu tietorakentei
 [Viikkoraportti 2](https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/viikkoraportti2.md)
 
 [Viikkoraportti 3](https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/viikkoraportti3.md)
+
+[Viikkoraportti 4](https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/viikkoraportti4.md)
