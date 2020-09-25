@@ -8,7 +8,7 @@ Ideana simulaatioalgorimissa on helppojen miinojen ratkaisemisen jälkeen käyd�
 
 En tosiaan vielä deadlinen tullessa vastaan ehtinyt selvittämään, mikä simulaatiossa ei oikein toimi, sillä tällä hetkellä varmojen siirtojen loputtua näyttää siltä, että algoritmi vain arvaa seuraavan siirron tai jäätyy kokonaan eikä tee mitään siirtoa.
 
-Simulaatioalgoritmin myötä ohjelmassa tarvitaan listaa pareista, jota en vielä ole toteuttanut omana tietorakenteenaan vaan listana joka on muotoa ArrayList<Pair>.
+Simulaatioalgoritmin myötä ohjelmassa tarvitaan listaa pareista, jota en vielä ole toteuttanut omana tietorakenteenaan vaan ArrayListinä.
 
 ## Testit
 
