@@ -117,7 +117,6 @@ public class BotLogicTest {
     }
     
     @Test
-    
     public void countUnopenedCellsSurroundingCellWorks() {
         this.board = new Board(generator, 3, 3, 0);
         this.board.firstMove = false;

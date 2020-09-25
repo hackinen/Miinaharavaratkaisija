@@ -5,6 +5,7 @@
  */
 package minesweeper.bot;
 
+import java.util.ArrayList;
 import minesweeper.model.*;
 
 /**
@@ -130,6 +131,41 @@ public class BotLogic {
     }
     
     /**
+     * A method for getting a list of those unopened cells that have at least one 
+     * opened cell as its neighbour
+     * @param grid - int[][]-grid that has the gameboard's current state copied in it
+     * @return list of Pairs (x,y-coordinates of the border cells)
+     */
+    public ArrayList<Pair> getListOfBorderCells(int[][] grid) {
+        
+        //This ArrayList will be changed to a self-made data structure
+        ArrayList<Pair> borderCells = new ArrayList<>();
+        
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                
+                //find an unopened cell
+                if (grid[i][j] == 10) {
+                    //Get that cell's neighbours
+                    int[][] surroundingCells = getSurroundingCells(grid, i, j);
+                    
+                    //Find out if there are opened cells in the neighbouring cells
+                    for (int ii = 0; ii < 3; ii++) {
+                        for (int jj = 0; jj < 3; jj++) {
+                            
+                            if (surroundingCells[ii][jj] > -1 && surroundingCells[ii][jj] < 9) {
+                                borderCells.add(new Pair(i, j));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        return borderCells;
+    }
+    
+    /**
      * Returns the values in the cells surrounding (x,y)
      * @param grid - int[][] grid that has been copied from the current board
      * @param x - x-coordinate of the cell
@@ -137,7 +173,7 @@ public class BotLogic {
      * @return int[][] surroundingCells - 3x3-grid, (x,y) in (1,1)
      */
     public int[][] getSurroundingCells(int[][] grid, int x, int y) {
-        if (grid == null || x < 0 || y < 0 || x >= grid[0].length || y >= grid.length) {
+        if (grid == null || x < 0 || y < 0 || x >= grid.length || y >= grid[0].length) {
             return null;
         }
         
@@ -146,7 +182,7 @@ public class BotLogic {
         for (int i = x - 1; i <= x + 1; i++) {
             for (int j = y - 1; j <= y + 1; j++) {
                 
-                if (i < 0 || j < 0 || i >= grid[0].length || j >= grid.length) {
+                if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length) {
                     surroundingCells[i - x + 1][j - y + 1] = -1;
                     continue;
                 }
@@ -168,6 +204,7 @@ public class BotLogic {
         
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
+                
                 if (i == 1 && j == 1) {
                     continue;
                 }

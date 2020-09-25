@@ -14,8 +14,8 @@ import minesweeper.model.Square;
 
 /**
  * MyBot class contains the functionality of the bot
- * This class is partially done by me: by now I have started the makeMove-method,
- * but have not made changes to the other methods
+ * This class is partially done by me: by now I have started the makeMove-method
+ * and findPossibleMove-method, but have not made changes to the other methods
  * @author hiira
  */
 public class MyBot implements Bot {
@@ -23,6 +23,7 @@ public class MyBot implements Bot {
     private Random rng = new Random();
     private GameStats gameStats;
     private BotLogic bl;
+    private Move simulatedMove; 
 
     /**
      * Makes a single decision based on the given Board state
@@ -31,6 +32,11 @@ public class MyBot implements Bot {
      */
     @Override
     public Move makeMove(Board board) {
+        
+        //The first move
+        if (board.firstMove) {
+            return new Move(MoveType.OPEN, 0, 0);
+        }
         
         this.bl = new BotLogic(board);
         
@@ -119,30 +125,107 @@ public class MyBot implements Bot {
         //  10- unopened
         int[][] grid = bl.getCopyOfBoard(board);
         
-        //backtracking
-        for (int i = 0; i < grid[0].length; i++) {
-            for (int j = 0; j < grid.length; j++) {
-                
-                //find an unopened cell that has an opened cell as its neigbour
-                if (grid[i][j] == 10) {
-                    int[][] surroundingCells = bl.getSurroundingCells(grid, i, j);
+        //backtrack a possible move
+        return findPossibleMove(grid);
+       
+
+        
+    }
+    
+    public Move findPossibleMove(int[][] grid) {
+        //get a list of unopened cells that have at least one opened cell as its
+        //neighbour
+        ArrayList<Pair> borderCells = bl.getListOfBorderCells(grid);
+        
+        simulateMove(grid, borderCells);
+        
+        return simulatedMove;
+    }
+    
+    public boolean simulateMove(int[][] grid, ArrayList<Pair> borderCells) {
+        if (borderCells.isEmpty()) {
+            return true;
+        }
+        Pair<Integer> coordinates = borderCells.remove(0);
+        int x = coordinates.first;
+        int y = coordinates.second;
+        
+        // 1. Check if we can flag the cell in given coordinates
+        grid[x][y] = 9;
+        boolean isFlagLegal = true;
+        
+        //get neighbours of the cell
+        int[][] neighbours = bl.getSurroundingCells(grid, x, y);
+        
+        //check if the flag was illegal
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                //neighbour is a numbered cell
+                if (neighbours[i][j] > 0 && neighbours[i][j] <= 8) {
+                    int[][] neighboursNeighbours = bl.getSurroundingCells(grid, x + i - 1, y + j - 1);
                     
-                    for (int ii = 0; ii < 3; ii++) {
-                        for (int jj = 0; jj < 3; jj++) {
-                            
-                            if (surroundingCells[ii][jj] > -1 && surroundingCells[ii][jj] < 9) {
-                                
-                                //TÄNNE SE REKURSIO LOLLLLL
-                            }
-                        }
-                    }
+                    //check if there are too many flags
+                    if (bl.countFlagsSurroundingCell(neighboursNeighbours) > neighbours[i][j]) {
+                        isFlagLegal = false;
+                    } 
                 }
+                
             }
         }
-       
         
-        return new Move(MoveType.OPEN, 0, 0);
-
+        if (isFlagLegal) {
+            isFlagLegal = simulateMove(grid, borderCells);        
+        }
+        
+        
+        // 2. Check if we can open the cell in given coordinates
+        grid[x][y] = 11;    // number 11 represents "opening" the cell
+        boolean isEmptyLegal = true;
+        
+        //get neighbours of the cell
+        neighbours = bl.getSurroundingCells(grid, x, y);
+        
+        //check if the opening of the cell was illegal
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                //neighbour is a numbered cell
+                if (neighbours[i][j] > 0 && neighbours[i][j] <= 8) {
+                    int[][] neighboursNeighbours = bl.getSurroundingCells(grid, x + i - 1, y + j - 1);
+                    
+                    //check if there are too little flags or unopened cells
+                    int flags = bl.countFlagsSurroundingCell(neighboursNeighbours);
+                    int unopenedCells = bl.countUnopenedCellsSurroundingCell(neighboursNeighbours);
+                    int flagsNeeded = neighbours[i][j] - flags;
+                    
+                    if (flagsNeeded > unopenedCells) {
+                        isEmptyLegal = false;
+                    } 
+                }
+                
+            }
+        }
+        
+        if (isEmptyLegal) {
+            isEmptyLegal = simulateMove(grid, borderCells);
+        }
+        
+        //Return original values
+        borderCells.add(coordinates);
+        grid[x][y] = 10;
+        
+        if (isFlagLegal && !isEmptyLegal) {
+            simulatedMove = new Move(MoveType.FLAG, x, y);
+            return true;
+        } else if (!isFlagLegal && isEmptyLegal) {
+            simulatedMove = new Move(MoveType.OPEN, x, y);
+            return true;
+        } else if (isFlagLegal && isEmptyLegal) {
+            //if both moves could be correct, guess and open the cell
+            simulatedMove = new Move(MoveType.OPEN, x, y);
+            return false;
+        } else {
+            return false;
+        }
         
     }
     

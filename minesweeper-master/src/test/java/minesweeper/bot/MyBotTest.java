@@ -50,6 +50,10 @@ public class MyBotTest {
     }
     
     @Test
+    public void testIfBotSimulatesCorrectMove() {
+    }
+    
+    @Test
     public void testIfBotFlagsRightNumberOfSurroundingSquares() {
         this.board.makeMove(bot.makeMove(board));
         this.board.makeMove(bot.makeMove(board));
@@ -88,7 +92,13 @@ public class MyBotTest {
     @Test
     public void testIfBotOpensSurroundingSquaresIfRightNumberOfFlags() {
         Board b2 = new Board(generator,10,10,0);
-        b2.getSquareAt(0, 1).setMine();
+        b2.firstMove = false;
+        
+        Square square = new Square(0, 1);
+        square.setMine();
+
+        b2.addSquare(square, 0, 1);
+        b2.incrementAdjacentSquares(0, 1);
         b2.makeMove(new Move(MoveType.FLAG,0,1));
         b2.makeMove(new Move(MoveType.OPEN,0,0));
         

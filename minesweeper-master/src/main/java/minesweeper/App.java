@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.stage.Stage;
 import minesweeper.gui.StartSelectView;
 
+
 public class App extends Application {
 
     @Override
@@ -30,6 +31,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+        
         launch();
     }
 }
