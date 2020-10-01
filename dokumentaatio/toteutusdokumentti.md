@@ -8,3 +8,5 @@ Miinaharavaratkaisija on toteutettu osaksi valmista [miinaharavapohjaa](https://
 ## Tilanteet, joissa on pakko arvata
 
 Maininnanarvoista on tosiaan se, että miinaharava on luonteeltaan sellainen peli, että erityisesti isoissa kentissä tulee vastaan tilanteita, joita ei edes algoritmikaan voi päätellä. Usen siis joko heti alussa tai aivan lopussa päädytään tilanteeseen, jossa bottikin joutuu arvaamaan, sillä yhtäkään siirtoa ei voi päätellä varmaksi.
+
+Tällaista arvaustilannetta ei botin toiminnasta välttämättä joka kerta huomaa, ellei tietenkin botti arvaa väärin, jolloin se häviää pelin.
