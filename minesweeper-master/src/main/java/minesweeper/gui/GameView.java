@@ -477,7 +477,7 @@ public class GameView {
      * This way the slider speed will persist between multiple games
      */
     private void initializeSlider() {
-        this.animationSlider = new Slider(100, 2000, StorageSingleton.getInstance().animationSpeed);
+        this.animationSlider = new Slider(100, 5000, StorageSingleton.getInstance().animationSpeed);
         this.animationSlider.setMajorTickUnit(200f);
         this.animationSlider.setBlockIncrement(10f);
         this.animationSlider.setMaxWidth(sizeX * buttonSize);

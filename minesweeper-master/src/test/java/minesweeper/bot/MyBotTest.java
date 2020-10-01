@@ -90,6 +90,27 @@ public class MyBotTest {
         b.makeMove(bot.makeMove(b));
     }
     
+    @Test
+    public void seeWhatBotDoes2() {
+        Board b = new Board(generator,4,4,0);
+        b.firstMove = false;
+        
+        Square square = new Square(3, 0);
+        Square square2 = new Square(1,3);
+        square.setMine();
+        square2.setMine();
+        
+        b.addSquare(square, 3, 0);
+        b.addSquare(square2, 1, 3);
+        b.incrementAdjacentSquares(3, 0);
+        b.incrementAdjacentSquares(1, 3);
+        
+        b.makeMove(new Move(MoveType.OPEN, 0, 0));
+        
+        b.makeMove(bot.makeMove(b));
+        b.makeMove(bot.makeMove(b));
+    }
+    
     /*
     @Test
     public void testIfBotFlagsSurroundingSquares() {
