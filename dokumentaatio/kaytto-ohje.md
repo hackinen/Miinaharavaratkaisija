@@ -1,8 +1,8 @@
 # Käyttöohje
 
-## Botin käyttö käyttöliittymässä
-
 _Huomio: käyttöliittymä ja miinaharavapelin perustoiminnot ovat valmiista miinaharavapohjasta peräisin, minä olen toteuttanut botin ja sen toimintalogiikan._
+
+## Botin käyttö käyttöliittymässä
 
 Ohjelman käynnistettäessä aukeaa näkymä päävalikkoon, josta käyttäjä voi valita pelikentän koon. Kun pelikenttä on valittu, aukeaa pelinäkymä (kuvassa koko intermediate):
 
