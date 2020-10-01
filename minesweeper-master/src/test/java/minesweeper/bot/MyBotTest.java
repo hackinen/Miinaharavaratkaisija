@@ -71,7 +71,7 @@ public class MyBotTest {
     }
     
     @Test
-    public void seeWhatBotDoes() {
+    public void checkIfAlgorithmWorks() {
         Board b = new Board(generator,4,3,0);
         b.firstMove = false;
         
@@ -87,11 +87,13 @@ public class MyBotTest {
         
         b.makeMove(new Move(MoveType.OPEN, 0, 0));
         
-        b.makeMove(bot.makeMove(b));
+        Move correctMove = new Move(MoveType.FLAG, 0, 2);
+        
+        assertEquals(correctMove, bot.makeMove(b));
     }
     
     @Test
-    public void seeWhatBotDoes2() {
+    public void checkIfAlgorithmWorks2() {
         Board b = new Board(generator,4,4,0);
         b.firstMove = false;
         
@@ -107,17 +109,31 @@ public class MyBotTest {
         
         b.makeMove(new Move(MoveType.OPEN, 0, 0));
         
-        b.makeMove(bot.makeMove(b));
-        b.makeMove(bot.makeMove(b));
+        Move correctMove = new Move(MoveType.OPEN, 2, 3);
+        assertEquals(correctMove, bot.makeMove(b));
     }
     
-    /*
+    
     @Test
     public void testIfBotFlagsSurroundingSquares() {
         Board b2 = new Board(generator,10,10,0);
-        b2.getSquareAt(0, 1).setMine();
-        b2.getSquareAt(1, 0).setMine();
-        b2.getSquareAt(1, 1).setMine();
+        b2.firstMove = false;
+        
+        Square s1 = new Square(0, 1);
+        s1.setMine();
+        b2.addSquare(s1, 0, 1);
+        b2.incrementAdjacentSquares(0, 1);
+        
+        Square s2 = new Square(1, 1);
+        s2.setMine();
+        b2.addSquare(s2, 1, 1);
+        b2.incrementAdjacentSquares(1, 1);
+        
+        Square s3 = new Square(1, 0);
+        s3.setMine();
+        b2.addSquare(s3, 1, 0);
+        b2.incrementAdjacentSquares(1, 0);
+      
         b2.makeMove(new Move(MoveType.OPEN,0,0));
         
         b2.makeMove(bot.makeMove(b2));
@@ -128,7 +144,7 @@ public class MyBotTest {
         assertEquals(true, b2.getSquareAt(1, 0).isFlagged());
         assertEquals(true, b2.getSquareAt(1,1).isFlagged());
     }
-    */
+    
     /*
     @Test
     public void testIfBotOpensSurroundingSquaresIfRightNumberOfFlags() {

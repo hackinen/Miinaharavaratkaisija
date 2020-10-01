@@ -78,6 +78,39 @@ public class Move {
     }
 
     @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Move other = (Move) obj;
+        if (this.x != other.x) {
+            return false;
+        }
+        if (this.y != other.y) {
+            return false;
+        }
+        if (this.type != other.type) {
+            return false;
+        }
+        return true;
+    }
+
+    
+    
+
+    @Override
     public String toString() {
         DecimalFormat numberFormat = new DecimalFormat("0.0000");
         return "Move: " + type + " Distance: " + numberFormat.format(euclideanDistance) 
