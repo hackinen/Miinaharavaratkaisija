@@ -144,6 +144,8 @@ public class BotLogic {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
                 
+                boolean isABorderCell = false;
+                
                 //find an unopened cell
                 if (grid[i][j] == 10) {
                     //Get that cell's neighbours
@@ -154,9 +156,13 @@ public class BotLogic {
                         for (int jj = 0; jj < 3; jj++) {
                             
                             if (surroundingCells[ii][jj] > -1 && surroundingCells[ii][jj] < 9) {
-                                borderCells.add(new Pair(i, j));
+                                isABorderCell = true;
                             }
                         }
+                    }
+                    
+                    if (isABorderCell) {
+                        borderCells.add(new Pair(i, j));
                     }
                 }
             }

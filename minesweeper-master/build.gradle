@@ -41,6 +41,7 @@ repositories {
 
 test {
     testLogging {
+        showStandardStreams = true
         events "failed"
         exceptionFormat "full"
     }

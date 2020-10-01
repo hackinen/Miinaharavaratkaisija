@@ -70,6 +70,26 @@ public class MyBotTest {
         assertEquals(1,flagged);
     }
     
+    @Test
+    public void seeWhatBotDoes() {
+        Board b = new Board(generator,4,3,0);
+        b.firstMove = false;
+        
+        Square square = new Square(3, 0);
+        Square square2 = new Square(0,2);
+        square.setMine();
+        square2.setMine();
+        
+        b.addSquare(square, 3, 0);
+        b.addSquare(square2, 0, 2);
+        b.incrementAdjacentSquares(3, 0);
+        b.incrementAdjacentSquares(0, 2);
+        
+        b.makeMove(new Move(MoveType.OPEN, 0, 0));
+        
+        b.makeMove(bot.makeMove(b));
+    }
+    
     /*
     @Test
     public void testIfBotFlagsSurroundingSquares() {

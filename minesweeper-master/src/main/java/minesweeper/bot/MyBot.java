@@ -4,6 +4,7 @@ package minesweeper.bot;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.ArrayList;
+import java.util.Arrays;
 import minesweeper.model.Board;
 import minesweeper.model.GameStats;
 import minesweeper.model.Move;
@@ -24,6 +25,7 @@ public class MyBot implements Bot {
     private GameStats gameStats;
     private BotLogic bl;
     private Move simulatedMove; 
+    private Pair<Integer> firstCell;
 
     /**
      * Makes a single decision based on the given Board state
@@ -125,6 +127,8 @@ public class MyBot implements Bot {
         //  10- unopened
         int[][] grid = bl.getCopyOfBoard(board);
         
+        System.out.println("simuloidaan");
+        
         //backtrack a possible move
         return findPossibleMove(grid);
        
@@ -137,7 +141,16 @@ public class MyBot implements Bot {
         //neighbour
         ArrayList<Pair> borderCells = bl.getListOfBorderCells(grid);
         
-        simulateMove(grid, borderCells);
+        for (int i = 0; i<borderCells.size(); i++) {
+            firstCell = borderCells.get(0);
+            
+            if (simulateMove(grid, borderCells)) {
+                break;
+            } else {
+                borderCells.add(borderCells.remove(0));
+            }
+        }
+        
         
         return simulatedMove;
     }
@@ -149,6 +162,17 @@ public class MyBot implements Bot {
         Pair<Integer> coordinates = borderCells.remove(0);
         int x = coordinates.first;
         int y = coordinates.second;
+        
+        System.out.println("Tarkasteltava ruutu: ("+x+","+y+")");
+        
+        System.out.println(borderCells);
+        
+        for (int i = 0; i<grid[0].length; i++) {
+            for(int j = 0; j<grid.length; j++) {
+                System.out.print(grid[j][i]+",");
+            }
+            System.out.println("");
+        }
         
         // 1. Check if we can flag the cell in given coordinates
         grid[x][y] = 9;
@@ -214,16 +238,20 @@ public class MyBot implements Bot {
         grid[x][y] = 10;
         
         if (isFlagLegal && !isEmptyLegal) {
+            System.out.println("ruutu "+x+","+y+" liputettiin");
             simulatedMove = new Move(MoveType.FLAG, x, y);
             return true;
         } else if (!isFlagLegal && isEmptyLegal) {
+            System.out.println("ruutu "+x+","+y+" avattiin");
             simulatedMove = new Move(MoveType.OPEN, x, y);
             return true;
         } else if (isFlagLegal && isEmptyLegal) {
             //if both moves could be correct, guess and open the cell
+            System.out.println("ruutu "+x+","+y+" arvattiin ja avattiin");
             simulatedMove = new Move(MoveType.OPEN, x, y);
-            return false;
+            return !firstCell.equals(coordinates);
         } else {
+            System.out.println("mentiin elseen");
             return false;
         }
         
