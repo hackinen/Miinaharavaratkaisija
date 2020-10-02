@@ -18,6 +18,8 @@ Tällä viikolla tein lisää testejä ja testikattavuus luokissani MyBot ja Bot
 
 Tietorakenteen ListOfPairs testaamista en vielä aloittanut, sillä ehdin vasta toteuttaa kyseisen luokan, en vielä edes käytä sitä missään.
 
+Lisäksi aloitin tehokkuustestauksen, mutta vasta pienellä kentällä.
+
 ## Ajankäyttö
 
 Aikaa projektiin on tällä viikolla kului 12h.
