@@ -13,7 +13,7 @@ Tällä hetkellä olen testannut luokkiani MyBot ja BotLogic, joiden testikattav
 
 ## Tehokkuustestaus
 
-Testasin tehokkuutta vasta pienimmällä valmiilla pelikenttäkoolla (10x10), ja pelin ratkaisemiseen kului aikaa:
+Testasin tehokkuutta vasta pienimmällä valmiilla pelikenttäkoolla (10x10), ja pelin ratkaisemiseen kului botilla aikaa:
 
 | yritys | päästiinkö läpi | aika (s) |
 |:------:|:----------:|:--------|
@@ -27,3 +27,4 @@ Testasin tehokkuutta vasta pienimmällä valmiilla pelikenttäkoolla (10x10), ja
 | 8. | kyllä | 0.0005 |
 | 9. | kyllä | 0.0005 |
 | 10. | kyllä | 0.0005 |
+| | | 0.00212|
