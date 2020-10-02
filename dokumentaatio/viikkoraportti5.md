@@ -6,7 +6,17 @@ Sain korjattua viime viikon virheet ja ongelmat ja nyt algoritmi toimii (tai ain
 
 Lisäksi maininnanarvoista on se, että miinaharava on luonteeltaan sellainen peli, että erityisesti isoissa kentissä tulee vastaan tilanteita, joita ei edes algoritmikaan voi päätellä. Usen siis joko heti alussa tai aivan lopussa päädytään tilanteeseen, jossa bottikin joutuu arvaamaan, sillä yhtäkään siirtoa ei voi päätellä varmaksi. Tähän arvaamiseen toki voisi toteuttaa jonkin todennäköisyyksien mukaan arvaavan toiminnon, mutta en usko, että aika tälläiseen tulee riittämään.
 
+Lisäksi toteutin tällä viikolla tietorakenteen ListOfPairs, jota tullaan käyttämään ArrayListin korvaajana backtracking-algoritmissa.
+
+Ensi viikolla teen oman listarakenteen toteutuksen loppuun sekä sen testauksen ja alan sitten todennäköisesti vielä yrittämään bottivinkkien toteuttamista.
+
 ## Testaus
+
+Tällä viikolla tein lisää testejä ja testikattavuus luokissani MyBot ja BotLogic näkyy alla olevasta kuvasta:
+
+<img src="https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/misc/testikattavuus-vko5.png" width="750">
+
+Tietorakenteen ListOfPairs testaamista en vielä aloittanut, sillä ehdin vasta toteuttaa kyseisen luokan, en vielä edes käytä sitä missään.
 
 ## Ajankäyttö
 
