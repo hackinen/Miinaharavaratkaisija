@@ -20,4 +20,4 @@ Tietorakenteen ListOfPairs testaamista en vielä aloittanut, sillä ehdin vasta 
 
 ## Ajankäyttö
 
-Aikaa projektiin on tällä viikolla tähän mennessä kulunut 10h.
+Aikaa projektiin on tällä viikolla kului 12h.
