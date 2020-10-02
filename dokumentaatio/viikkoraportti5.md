@@ -10,4 +10,4 @@ Lisäksi maininnanarvoista on se, että miinaharava on luonteeltaan sellainen pe
 
 ## Ajankäyttö
 
-Aikaa projektiin on tällä viikolla tähän mennessä kulunut 8h.
+Aikaa projektiin on tällä viikolla tähän mennessä kulunut 10h.
