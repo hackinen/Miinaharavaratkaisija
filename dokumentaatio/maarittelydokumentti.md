@@ -6,8 +6,13 @@ Projektissa on käytetty valmista [pohjaa](https://github.com/TiraLabra/mineswee
 
 Ohjelmalle ei anneta syötteenä mitään botin ratkaistessa peliä, vaan peli arpoo botille kentän, ja botti ratkaisee sen. Mikäli käytetään bottia vain vinkkejen antajana, annetaan "periaatteessa" botille syötteenä nykyinen pelitilanne painamalla vinkki-nappulaa, mutta lähtökohtaisesti siis ei ohjelma tarvitse käyttäjältä syötteitä, kun käytetään miinaharavaratkaisijaa.
 
-Työn laajuudessa on tarkoitus päästä siihen asti, että ratkaisija kykenee ratkaisemaan minkä tahansa sille annetun miinaharavapelin aina siihen asti, kunnes se joutuisi tekemään arvauksen (ja poislukien erittäin suurikokoiset kentät, sillä aikavaativuus voi tulla tässä vastaan).
+Työn laajuudessa on tarkoitus päästä siihen asti, että ratkaisija kykenee ratkaisemaan sille annetun (kohtuullisen kokoisen) miinaharavapelin aina siihen asti, kunnes sen on pakko arvata.
 
-## Aikavaativuus
 
-Aikavaativuus tulee olemaan luokkaa O(n^2), missä n on ruutujen lukumäärä. Jokainen ruutu tullaan avaamaan kerran, ja jokaisen ruudun avaamista varten tarvitsee pahimmassa tapauksessa käydä läpi n kappaletta ruutuja. Aikaavaativuus onkin sen verran suuri, että ei ole mielekästä ruveta ratkomaan _todella_ suuria kenttiä. Miinaharavapelissä olevat kolme eri kokoa kuitenkin ratkeavat järkevässä ajassa.
+## Backtracking-algoritmi ja sen aikavaativuus
+
+Tavallisten helppojen päättelyiden lisäksi on ohjelmassa käytetty rekursiivista backtracking-algoritmia. Algoritmin perusajatuksena on käydä läpi "reunaruutujen" (avaamattomat ruudut, jotka ovat jo avattujen ruutujen reunassa) listaa ja jokaiselle ruudulle suorittaa backtracking-algoritmi niin, että etsitään sellaista liputettujen ja avattujen reunaruutujen yhdistelmää, jonka perusteella voidaan varmasti päätellä, voiko tämän aloitusruudun liputtaa tai avata.
+
+Kuten voi päätellä, algoritmi vie pahimmassa tapauksessa _todella_ paljon aikaa, sillä kun mielenkiitoisia reunaruutuja on _n_ kappaletta ja nämä käydään läpi yllä kuvatulla tavalla, saadaan aikavaativuudeksi _O(n*2^n)_. Ensimmäinen termi _n_ tulee kaikkien reunaruutujen kokeilemisesta backtrackingin aloitusruuduksi ja termi _2^n_ siitä, että jokaista aloitusruutua varten on käytävä läpi _2^n_ yhdistelmää näitä reunaruutuja, sillä jokainen ruutu voidaan joko liputtaa tai avata.
+
+ Aikaavaativuus onkin sen verran suuri, että ei ole mielekästä ruveta ratkomaan todella suuria kenttiä. Miinaharavapelissä olevat kolme eri kokoa kuitenkin ratkeavat, kaksi ensimmäistä vielä järkevästi, mutta viimeisessä saattaa pahan paikan tullen kulua todella paljon aikaa yhden siirron päättelyyn backtracking-algoritmilla.
