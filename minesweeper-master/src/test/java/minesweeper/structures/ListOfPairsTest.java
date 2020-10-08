@@ -17,6 +17,7 @@ import static org.junit.Assert.*;
  * @author hiira
  */
 public class ListOfPairsTest {
+    private ListOfPairs list;
     
     public ListOfPairsTest() {
     }
@@ -31,11 +32,24 @@ public class ListOfPairsTest {
     
     @Before
     public void setUp() {
+        this.list = new ListOfPairs();
     }
     
     @After
     public void tearDown() {
     }
-
+    
+    @Test
+    public void newListSizeIsZero() {
+        assertEquals(0, this.list.size());
+    }
+    
+    @Test
+    public void methodIncreaseSizeOfListDoublesTheAvailableSpotsOnTheList() {
+        assertEquals(1, list.absoluteSize());
+        this.list.increaseSizeOfList();
+        assertEquals(2, list.absoluteSize());
+    }
+    
     
 }

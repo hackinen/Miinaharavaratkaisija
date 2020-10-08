@@ -52,7 +52,9 @@ public class ListOfPairs {
     
     
     /**
-     * Returns the size of the list (the number of Pairs)
+     * Returns the size of the list (the number of Pairs) NOTE: The name of this
+     * method may seem confusing, but I wanted to use the same method name as
+     * ArayList has
      * @return size
      */
     public int size() {
@@ -110,5 +112,14 @@ public class ListOfPairs {
      */
     public Pair get(int i) {
         return this.list[i];
+    }
+    
+    /**
+     * Method for checking the absolute size of the list, mainly for testing
+     * purposes
+     * @return size
+     */
+    public int absoluteSize() {
+        return this.size;
     }
 }
