@@ -33,6 +33,23 @@ Projektiin on määritelty javadoc, jacoco-testikattavuus sekä checkstyle.
 
 JavaDoc generoidaan minesweeper-master -ohjelmaprojektikansiossa komennolla:
 
-```gradle javadoc```
+``` gradle javadoc ```
 
 JavaDocia voi tarkastella avaamalla tiedoston _Miinaharavaratkaisija/minesweeper-master/build/docs/javadoc/index.html_.
+
+### Testikattavuus
+
+Jacocon generointi tapahtuu komennolla:
+
+``` ./gradlew build ```
+
+Testikattavuutta voi tarkastella tiedostosta _Miinaharavaratkaisija/minesweeper-master/build/reports/jacoco/test/html/index.html_.
+
+
+### Checkstyle
+
+Checkstylen tarkastaminen suoritetaan komennolla:
+
+``` gradle check ```
+
+mahdolliset checkstyle-virheet löytyvät tiedostosta _Miinaharavaratkaisija/minesweeper-master/build/reports/checkstyle/main.html_.
