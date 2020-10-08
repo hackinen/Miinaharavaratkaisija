@@ -23,3 +23,16 @@ Miinaharavaratkaisija on Java-kielinen ohjelma, joka on toteutettu tietorakentei
 [Viikkoraportti 4](https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/viikkoraportti4.md)
 
 [Viikkoraportti 5](https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/viikkoraportti5.md)
+
+
+## Komentorivitoiminnot
+
+Projektiin on määritelty javadoc, jacoco-testikattavuus sekä checkstyle.
+
+### JavaDoc
+
+JavaDoc generoidaan minesweeper-master -ohjelmaprojektikansiossa komennolla:
+
+```gradle javadoc```
+
+JavaDocia voi tarkastella avaamalla tiedoston _Miinaharavaratkaisija/minesweeper-master/build/docs/javadoc/index.html_.
