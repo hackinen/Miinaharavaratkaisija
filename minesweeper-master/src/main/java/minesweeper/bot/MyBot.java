@@ -5,13 +5,8 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.Arrays;
-import minesweeper.model.Board;
-import minesweeper.model.GameStats;
-import minesweeper.model.Move;
-import minesweeper.model.MoveType;
-import minesweeper.model.Highlight;
-import minesweeper.model.Pair;
-import minesweeper.model.Square;
+import minesweeper.model.*;
+import minesweeper.structures.*;
 
 /**
  * MyBot class contains the functionality of the bot
@@ -139,7 +134,7 @@ public class MyBot implements Bot {
     public Move findPossibleMove(int[][] grid) {
         //get a list of unopened cells that have at least one opened cell as its
         //neighbour
-        ArrayList<Pair> borderCells = bl.getListOfBorderCells(grid);
+        ListOfPairs borderCells = bl.getListOfBorderCells(grid);
         
         for (int i = 0; i<borderCells.size(); i++) {
 //            System.out.println("");
@@ -147,7 +142,7 @@ public class MyBot implements Bot {
             
             firstCell = borderCells.get(0);
             
-            if (simulateMove(grid, (ArrayList<Pair>) borderCells.clone())) {
+            if (simulateMove(grid, (ListOfPairs) borderCells.clone())) {
                 break;
             } else {
                 borderCells.add(borderCells.remove(0));
@@ -158,25 +153,13 @@ public class MyBot implements Bot {
         return simulatedMove;
     }
     
-    public boolean simulateMove(int[][] grid, ArrayList<Pair> borderCells) {
+    public boolean simulateMove(int[][] grid, ListOfPairs borderCells) {
         if (borderCells.isEmpty()) {
             return true;
         }
         Pair<Integer> coordinates = borderCells.remove(0);
         int x = coordinates.first;
         int y = coordinates.second;
-        
-//        System.out.println("");
-//        System.out.println("Tarkasteltava ruutu: ("+x+","+y+")");
-//        
-//        System.out.println(borderCells);
-//        
-//        for (int i = 0; i<grid[0].length; i++) {
-//            for(int j = 0; j<grid.length; j++) {
-//                System.out.print(grid[j][i]+",");
-//            }
-//            System.out.println("");
-//        }
         
         // 1. Check if we can flag the cell in given coordinates
         grid[x][y] = 9;

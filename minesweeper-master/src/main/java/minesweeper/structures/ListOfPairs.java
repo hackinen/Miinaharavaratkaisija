@@ -108,6 +108,16 @@ public class ListOfPairs {
         return pair;
     }
     
+    public ListOfPairs clone() {
+        ListOfPairs cloneList = new ListOfPairs();
+        
+        for (int i = 0; i < this.length; i++) {
+            cloneList.add(this.list[i]);
+        }
+        
+        return cloneList;
+    }
+    
     
     /**
      * returns the value in list[i]

@@ -7,6 +7,7 @@ package minesweeper.bot;
 
 import java.util.ArrayList;
 import minesweeper.model.*;
+import minesweeper.structures.ListOfPairs;
 
 /**
  * This class is completely done by me
@@ -136,10 +137,10 @@ public class BotLogic {
      * @param grid - int[][]-grid that has the gameboard's current state copied in it
      * @return list of Pairs (x,y-coordinates of the border cells)
      */
-    public ArrayList<Pair> getListOfBorderCells(int[][] grid) {
+    public ListOfPairs getListOfBorderCells(int[][] grid) {
         
         //This ArrayList will be changed to a self-made data structure
-        ArrayList<Pair> borderCells = new ArrayList<>();
+        ListOfPairs borderCells = new ListOfPairs();
         
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
