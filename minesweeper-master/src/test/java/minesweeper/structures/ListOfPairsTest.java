@@ -131,4 +131,15 @@ public class ListOfPairsTest {
         
         assertEquals(2, list.size());
     }
+    
+    @Test
+    public void cloneOfListMatchesOriginalList() {
+        list.add(new Pair(0, 0));
+        list.add(new Pair(0, 4));
+        list.add(new Pair(5, 6));
+        list.remove(1);
+        list.add(new Pair(1, 1));
+        
+        assertEquals(list, list.clone());
+    }
 }

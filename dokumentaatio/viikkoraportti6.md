@@ -5,4 +5,4 @@
 
 ## Ajankäyttö
 
-Aikaa tähän mennessä kulunut 3,5h
+Aikaa tähän mennessä kulunut 4h

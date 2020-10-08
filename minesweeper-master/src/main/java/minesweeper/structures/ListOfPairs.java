@@ -5,6 +5,7 @@
  */
 package minesweeper.structures;
 
+import java.util.Arrays;
 import minesweeper.model.*;
 
 /**
@@ -136,4 +137,33 @@ public class ListOfPairs {
     public int absoluteSize() {
         return this.size;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ListOfPairs other = (ListOfPairs) obj;
+        if (this.length != other.length) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.list, other.list)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 }
