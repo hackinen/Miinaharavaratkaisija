@@ -89,6 +89,7 @@ public class ListOfPairs {
         }
         
         Pair pair = this.list[i];
+        this.list[i] = null;
         Pair[] newList = new Pair[this.size];
         int offset = 0;
         
@@ -100,6 +101,9 @@ public class ListOfPairs {
             
             newList[x-offset] = this.list[x];
         }
+        
+        this.list = newList;
+        this.length--;
         
         return pair;
     }
