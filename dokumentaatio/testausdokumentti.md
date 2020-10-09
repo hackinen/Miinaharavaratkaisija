@@ -4,7 +4,7 @@ Ohjelmaa on testattu automaattitestein JUnitilla sekä ohjelmoinnin aikana manua
 
 ## Automaattitestaus
 
-Tällä hetkellä olen testannut luokkiani MyBot ja BotLogic, joiden testikattavuus löytyy alla olevasta kuvasta. Muut testit ovat valmiita testejä, jotka ovat tulleet projektipohjan mukana eivätkä liity minun tekemääni ohjelmakoodiin tai testaukseen.
+Tällä hetkellä olen testannut luokkiani MyBot ja BotLogic sekä tietorakennettani ListOfPairs, joiden testikattavuus löytyy alla olevasta kuvasta. Muut testit ovat valmiita testejä, jotka ovat tulleet projektipohjan mukana eivätkä liity minun tekemääni ohjelmakoodiin tai testaukseen.
 
 ### Testauskattavuus
 
@@ -29,7 +29,7 @@ Botin tehokkuutta on testattu miinaharavapelissä olevilla kolmella eri kokoisel
 | 8. | kyllä | 0.0005 |
 | 9. | kyllä | 0.0005 |
 | 10. | kyllä | 0.0005 |
-| | | 0.00212|
+| avg | | 0.00212|
 
 #### 16 x 16
 
@@ -45,7 +45,7 @@ Botin tehokkuutta on testattu miinaharavapelissä olevilla kolmella eri kokoisel
 | 8. | ei | - |
 | 9. | kyllä | 0.0292 |
 | 10. | kyllä | 1.2057 |
-| | | |
+| avg | | 0.2322|
 
 #### 16 x 30
 
@@ -61,7 +61,7 @@ Botin tehokkuutta on testattu miinaharavapelissä olevilla kolmella eri kokoisel
 | 8. | ei | - |
 | 9. | ei | - |
 | 10. | kyllä | 16.7980 |
-| | | |
+| avg | | 8.9914 |
 
 
 ### Tulosten arviointi
