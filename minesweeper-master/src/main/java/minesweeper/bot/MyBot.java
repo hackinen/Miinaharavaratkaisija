@@ -10,8 +10,7 @@ import minesweeper.structures.*;
 
 /**
  * MyBot class contains the functionality of the bot
- * This class is partially done by me: by now I have started the makeMove-method
- * and findPossibleMove-method, but have not made changes to the other methods
+ * This class is done by me
  * @author hiira
  */
 public class MyBot implements Bot {
@@ -245,42 +244,29 @@ public class MyBot implements Bot {
     }
     
     /**
-     * Return multiple possible moves to make based on current board state.
-     * Suggested to be used for a "helper" bot to provide multiple highlights at once.
+     * Returns a possible move depending on the current board state.
+     * Used for a "helper" bot to provide a highlight.
      * @param board The current board state.
-     * @return List of moves for current board.
+     * @return List of moves for current board (List contains only one move).
      */
     @Override
     public ArrayList<Move> getPossibleMoves(Board board) {
         ArrayList<Move> movesToMake = new ArrayList<>();
-        HashSet<Pair<Integer>> pairs = new HashSet();
-
-        //Chooses a random amount of moves to make between 1 and total number of mines
-        int movesToReturn = rng.nextInt(board.totalMines) + 1;
-
-        for (int i = 0; i < movesToReturn; i++) {
-            Boolean found = false;
-            Pair<Integer> pair = new Pair(-1, -1);
-            //Attempts to find a unique unopened square up to 5 times or until it is successfully found
-            for (int attempt = 0; attempt < 6 && !found; attempt++) {
-                pair = findUnopenedSquare(board);
-                if (!pairs.contains(pair)) {
-                    pairs.add(pair);
-                    found = true;
-                } 
-            }
-           
-            if (found) {
-                if (i < Math.floor(movesToReturn / 2)) {
-                    movesToMake.add(new Move(pair.first, pair.second, Highlight.GREEN));
-                } else {
-                    movesToMake.add(new Move(pair.first, pair.second, Highlight.RED));
-                }
-            } else {
-                //if a square is not found, skips the rest of the for loop
-                i = movesToReturn;
-            }
+        
+        Move move = this.makeMove(board);
+        
+        if (move.type == MoveType.OPEN) {
+            move.type = MoveType.HIGHLIGHT;
+            move.highlight = Highlight.GREEN;
         }
+        
+        if (move.type == MoveType.FLAG) {
+            move.type = MoveType.HIGHLIGHT;
+            move.highlight = Highlight.RED;
+        }
+        
+        movesToMake.add(move);
+        
         return movesToMake;
     }
 
@@ -294,38 +280,6 @@ public class MyBot implements Bot {
     
     
     
-    /**
-     * Find the (X, Y) coordinate pair of an unopened square
-     * from the current board
-     * @param board The current board state
-     * @return An (X, Y) coordinate pair
-     */
-    public Pair<Integer> findUnopenedSquare(Board board) {
-        Boolean unOpenedSquare = false;
-
-        // board.getOpenSquares allows access to already opened squares
-        HashSet<Square> opened = board.getOpenSquares();
-        int x;
-        int y;
-
-        Pair<Integer> pair = new Pair<>(0, 0);
-
-        // Randomly generate X,Y coordinate pairs that are not opened
-        while (!unOpenedSquare) {
-            x = rng.nextInt(board.width);
-            y = rng.nextInt(board.height);
-            if (!opened.contains(board.board[x][y])) {
-                unOpenedSquare = true;
-                pair = new Pair<Integer>(x, y);
-            }
-        }
-
-        // This pair should point to an unopened square now
-        return pair;
-    } 
-   
-    
-   
     
 }
 
