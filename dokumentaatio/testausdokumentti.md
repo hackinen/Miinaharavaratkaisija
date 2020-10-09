@@ -66,8 +66,10 @@ Botin tehokkuutta on testattu miinaharavapelissä olevilla kolmella eri kokoisel
 
 ### Tulosten arviointi
 
-Kuten jo näinkin pienellä otoksella havaitaan, peliruudukon koon kasvaessa ja miinoja/ruudukko-suhteen muuttuessa, tulee todennäköisemmäksi se, että botti joutuu arvaamaan jossakin tilanteessa, eikä siis välttämättä saa peliä läpi. Lisäksi isoimmassa ruudukossa välillä odotusaika on _todella_ pitkä, enkä usein ole jaksanut näitä tilanteita odottaa loppuun asti. 
+Kuten jo näinkin pienellä otoksella havaitaan, peliruudukon koon kasvaessa ja miinoja/ruudukko-suhteen muuttuessa, tulee todennäköisemmäksi se, että botti joutuu arvaamaan jossakin tilanteessa, eikä siis välttämättä saa peliä läpi. Lisäksi isoimmassa ruudukossa välillä odotusaika on _todella_ pitkä, enkä usein ole jaksanut näitä tilanteita odottaa loppuun asti. Käytännössä joka kerta, kun tälläisen (n. 300-600s) pelin olen odottanut loppuun, on jouduttu kuitenkin lopulta arvaamaan ja hävitty. Tästä syystä 16x30-kokoisen ruudukon ajanmittaustulokset saattavat olla hieman vääristyneitä, sillä mittauksissa osui kohdalle yksi pidempi peli, jota en kymmenen minuutin jälkeen enää odottanut loppuun.
 
 ## Kehitysideoita
 
 Tehokkuutta oltaisiin voitu parantaa jaoittelemalla tarkasteltava kiinnostavien reunaruutujen alue osa-alueisiin sen mukaan, muodostavatko reunaruudut yhtenäisen alueen. Tällöin rekursio suurimmassa kentässä olisi useissa tilanteissa huomattavasti pienempi, eikä siksi veisi huonoimmassa tapauksessa älyttömästi aikaa.
+
+Lisäksi arvaamista oltaisiin voitu parantaa lisämällä ohjelmaan todennäköisyyksiä ylläpitävä toiminto. Tällöin päädyttäessä pattitilanteeseen voisi botti arvata kaikista pienimmällä todennäköisyydellä miinan sisältävän ruudun.
