@@ -13,7 +13,9 @@ Tällä hetkellä olen testannut luokkiani MyBot ja BotLogic, joiden testikattav
 
 ## Tehokkuustestaus
 
-Testasin tehokkuutta vasta pienimmällä valmiilla pelikenttäkoolla (10x10), ja pelin ratkaisemiseen kului botilla aikaa:
+Botin tehokkuutta on testattu miinaharavapelissä olevilla kolmella eri kokoisella kentällä (10x10, 16x16 ja 16x30). Tulokset on listattu alla, jokainen koko omassa taulukossaan:
+
+#### 10 x 10
 
 | yritys | päästiinkö läpi | aika (s) |
 |:------:|:----------:|:--------|
@@ -28,3 +30,44 @@ Testasin tehokkuutta vasta pienimmällä valmiilla pelikenttäkoolla (10x10), ja
 | 9. | kyllä | 0.0005 |
 | 10. | kyllä | 0.0005 |
 | | | 0.00212|
+
+#### 16 x 16
+
+| yritys | päästiinkö läpi | aika (s) |
+|:------:|:----------:|:--------|
+| 1. | kyllä | 0.3633 |
+| 2. | kyllä | 0.1525 |
+| 3. | kyllä | 0.0212 |
+| 4. | ei | - |
+| 5. | kyllä | 0.0350 |
+| 6. | kyllä | 0.0138 |
+| 7. | kyllä | 0.0372 |
+| 8. | ei | - |
+| 9. | kyllä | 0.0292 |
+| 10. | kyllä | 1.2057 |
+| | | |
+
+#### 16 x 30
+
+| yritys | päästiinkö läpi | aika (s) |
+|:------:|:----------:|:--------|
+| 1. | kyllä | 4.6470 |
+| 2. | kyllä | 22.8625 |
+| 3. | kyllä | 0.0261 |
+| 4. | ei | - |
+| 5. | kyllä | 0.6233 |
+| 6. | ei | - |
+| 7. | ei | - |
+| 8. | ei | - |
+| 9. | ei | - |
+| 10. | kyllä | 16.7980 |
+| | | |
+
+
+### Tulosten arviointi
+
+Kuten jo näinkin pienellä otoksella havaitaan, peliruudukon koon kasvaessa ja miinoja/ruudukko-suhteen muuttuessa, tulee todennäköisemmäksi se, että botti joutuu arvaamaan jossakin tilanteessa, eikä siis välttämättä saa peliä läpi. Lisäksi isoimmassa ruudukossa välillä odotusaika on _todella_ pitkä, enkä usein ole jaksanut näitä tilanteita odottaa loppuun asti. 
+
+## Kehitysideoita
+
+Tehokkuutta oltaisiin voitu parantaa jaoittelemalla tarkasteltava kiinnostavien reunaruutujen alue osa-alueisiin sen mukaan, muodostavatko reunaruudut yhtenäisen alueen. Tällöin rekursio suurimmassa kentässä olisi useissa tilanteissa huomattavasti pienempi, eikä siksi veisi huonoimmassa tapauksessa älyttömästi aikaa.
