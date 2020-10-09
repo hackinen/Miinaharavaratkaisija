@@ -130,6 +130,13 @@ public class MyBot implements Bot {
         
     }
     
+    /**
+     * A method for going through all of the border cells for finding out if one
+     * of them can be opened/flagged with certainty - uses the recusive method
+     * simulateMove
+     * @param grid the current state of the board in a grid-structure
+     * @return Move
+     */
     public Move findPossibleMove(int[][] grid) {
         //get a list of unopened cells that have at least one opened cell as its
         //neighbour
@@ -152,6 +159,13 @@ public class MyBot implements Bot {
         return simulatedMove;
     }
     
+    /**
+     * Backtracking algorithm for finding out if it is possible to be certain to
+     * flag/open a cell
+     * @param grid the current state of the board in a grid-structure
+     * @param borderCells list of the interesting cells
+     * @return true if can be certain, false if not
+     */
     public boolean simulateMove(int[][] grid, ListOfPairs borderCells) {
         if (borderCells.isEmpty()) {
             return true;
