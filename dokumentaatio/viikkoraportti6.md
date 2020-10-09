@@ -6,7 +6,7 @@ Tällä viikolla korjailin muutamia virheitä listarakenteessa ListOfPairs sekä
 
 Lisäksi parantelin dokumentaatiota ja tein tehokkuustestausta eri kokoisilla miinaharavakentillä.
 
-### testit
+### Testit
 
 Tämänhetkinen testikattavuus sekä tehokkuustestaus löytyvät molemmat [testausdokumentista](https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/testausdokumentti.md).
 
