@@ -32,3 +32,5 @@ Tehokkuutta oltaisiin voitu parantaa jaoittelemalla tarkasteltava kiinnostavien 
 Lisäksi arvaamista oltaisiin voitu parantaa lisämällä ohjelmaan todennäköisyyksiä ylläpitävä toiminto. Tällöin päädyttäessä pattitilanteeseen voisi botti arvata kaikista pienimmällä todennäköisyydellä miinan sisältävän ruudun. Ohjelman tässä muodossa botti ei siis oikeastaan edes "arvaa", vaan avaa aina viimeisenä tarkasteltavan aloitusruudun, jos mitään varmaa siirtoa ei löytynyt.
 
 Lisäksi vinkkejä antavaan "Help (bot)"-toiminnallisuuteen olisi vielä voitu lisätä sellainen ominaisuus, että mikäli botti ei ole varma siirrostaan eli se joutuu itsekin arvaamaan, ei botti tällöin antaisi vinkkiä ollenkaan.
+
+Erityisesti luokan MyBot metodit makeMove ja simutaleMove jäivät kohtalaisen pitkiksi. Metodien rakenteen vuoksi ne olisi ollut (ainakin omasta mielestäni) erittäin hankalaa paloitella pienempiin osiin ja nämä pienemmät metodit olisivat vaatineet jo niin paljon parametreja ja muunkin koodin muokkaamista, minkä takia sitä en sitten tehnyt.
