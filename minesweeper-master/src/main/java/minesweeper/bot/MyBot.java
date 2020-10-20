@@ -258,10 +258,10 @@ public class MyBot implements Bot {
     }
     
     /**
-     * Returns a possible move depending on the current board state.
-     * Used for a "helper" bot to provide a highlight.
+     * Returns a possible move depending on the current board state. NOTE: 
+     * Returns an ArrayList because this method was defined in the Bot interface
      * @param board The current board state.
-     * @return List of moves for current board (List contains only one move).
+     * @return one Move (in an ArrayList because of the project base).
      */
     @Override
     public ArrayList<Move> getPossibleMoves(Board board) {
