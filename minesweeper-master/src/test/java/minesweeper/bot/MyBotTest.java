@@ -146,6 +146,26 @@ public class MyBotTest {
         assertEquals(true, b2.getSquareAt(1,1).isFlagged());
     }
     
+      @Test
+    public void testIfBotOpensSurroundingSquares() {
+        Board b2 = new Board(generator,10,10,0);
+        b2.firstMove = false;
+        
+        Square s1 = new Square(0, 1);
+        s1.setMine();
+        b2.addSquare(s1, 0, 1);
+        b2.incrementAdjacentSquares(0, 1);
+        
+        b2.makeMove(new Move(MoveType.OPEN,0,0));
+        b2.makeMove(new Move(MoveType.FLAG,0,1));
+        
+        b2.makeMove(bot.makeMove(b2));
+        b2.makeMove(bot.makeMove(b2));
+        
+        assertEquals(true, b2.getSquareAt(1, 0).isOpened());
+        assertEquals(true, b2.getSquareAt(1,1).isOpened());
+    }
+    
     
     @Test
     public void testIfBotSuggestsTheRightMove() {
@@ -167,6 +187,7 @@ public class MyBotTest {
         //get the suggested move, should be flag (highlight red) square in (0,1)
         suggestedMove = bot.getPossibleMoves(b1);
         Move correctMove = new Move(MoveType.HIGHLIGHT, 0, 1);
+        
         assertEquals(correctMove, suggestedMove.get(0));
     }
     
