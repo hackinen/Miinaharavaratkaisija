@@ -118,21 +118,16 @@ public class MyBot implements Bot {
         //A copy of the gameboard:
         //  0-8 - opened, number of surrounding mines
         //  9 - flagged
-        //  10- unopened
+        //  10 - unopened
         int[][] grid = bl.getCopyOfBoard(board);
-        
-        //System.out.println("simuloidaan");
         
         //backtrack a possible move
         return findPossibleMove(grid);
-       
-
-        
     }
     
     /**
      * A method for going through all of the border cells for finding out if one
-     * of them can be opened/flagged with certainty - uses the recusive method
+     * of them can be opened/flagged with certainty - uses the recursive method
      * simulateMove
      * @param grid the current state of the board in a grid-structure
      * @return Move

@@ -5,6 +5,7 @@
  */
 package minesweeper.bot;
 
+import java.util.ArrayList;
 import minesweeper.generator.MinefieldGenerator;
 import minesweeper.model.*;
 
@@ -145,26 +146,30 @@ public class MyBotTest {
         assertEquals(true, b2.getSquareAt(1,1).isFlagged());
     }
     
-    /*
+    
     @Test
-    public void testIfBotOpensSurroundingSquaresIfRightNumberOfFlags() {
-        Board b2 = new Board(generator,10,10,0);
-        b2.firstMove = false;
+    public void testIfBotSuggestsTheRightMove() {
+        ArrayList<Move> suggestedMove = new ArrayList<>();
+        Board b1 = new Board(generator,3,3,0);
+        b1.firstMove = false;
         
-        Square square = new Square(0, 1);
-        square.setMine();
-
-        b2.addSquare(square, 0, 1);
-        b2.incrementAdjacentSquares(0, 1);
-        b2.makeMove(new Move(MoveType.FLAG,0,1));
-        b2.makeMove(new Move(MoveType.OPEN,0,0));
+        //set mine at (0,1)
+        Square s1 = new Square(0, 1);
+        s1.setMine();
+        b1.addSquare(s1, 0, 1);
+        b1.incrementAdjacentSquares(0, 1);
         
-        b2.makeMove(bot.makeMove(b2));
+        //open these squares:
+        b1.makeMove(new Move(MoveType.OPEN, 0, 0));
+        b1.makeMove(new Move(MoveType.OPEN, 1, 0));
+        b1.makeMove(new Move(MoveType.OPEN, 1, 1));
         
-        assertEquals(true, b2.getSquareAt(1, 0).isOpened());
-        assertEquals(true, b2.getSquareAt(1,1).isOpened());
+        //get the suggested move, should be flag (highlight red) square in (0,1)
+        suggestedMove = bot.getPossibleMoves(b1);
+        Move correctMove = new Move(MoveType.HIGHLIGHT, 0, 1);
+        assertEquals(correctMove, suggestedMove.get(0));
     }
-    */
+    
     @Test
     public void myBotCanMakeValidMoves() {
         Move move = this.bot.makeMove(this.board);
