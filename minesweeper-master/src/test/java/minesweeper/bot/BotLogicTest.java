@@ -103,6 +103,21 @@ public class BotLogicTest {
     }
     
     @Test
+    public void getSurroundingCellsReturnsNullWhenIllegalIndexes() {
+        this.board = new Board(generator, 3, 3, 0);
+        int[][] bigGrid = bl.getCopyOfBoard(board);
+        Assert.assertArrayEquals(null, bl.getSurroundingCells(bigGrid, -1, -2));
+        Assert.assertArrayEquals(null, bl.getSurroundingCells(bigGrid, 3, 3));
+    }
+    
+    @Test
+    public void getSurroundingCellsReturnsNullWhenGivenGridIsNull() {
+        this.board = new Board(generator, 3, 3, 0);
+        int[][] grid = null;
+        Assert.assertArrayEquals(null, bl.getSurroundingCells(grid, 0, 0));
+    }
+    
+    @Test
     public void countFlagsSurroundingCellWorks() {
         this.board = new Board(generator, 3, 3, 2);
         this.board.firstMove = false;
@@ -137,20 +152,25 @@ public class BotLogicTest {
         assertEquals(3, bl.countUnopenedCellsSurroundingCell(grid));
     }
 
-//    @Test
-//    public void getSurroundingSquaresMethodReturnsTheRightSquares() {
-//        Square[][] originalSquares = new Square[3][3];
-//      
-//        //add top left corner squares
-//        for (int i = 0; i < 3; i++) {
-//            for (int j = 0; j < 3; j++) {
-//                originalSquares[i][j] = board.getSquareAt(i, j);
-//            }
-//        }
-//        
-//        Square[][] methodSquares = bl.getSurroundingSquares(1, 1);
-//        
-//        AssertEquals(methodSquares,originalSquares);
-//    }
+    @Test
+    public void getSurroundingSquaresMethodReturnsTheRightSquares() {
+        Square[][] originalSquares = new Square[3][3];
+      
+        //add top left corner squares
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                originalSquares[i][j] = board.getSquareAt(i, j);
+            }
+        }
+        
+        Square[][] methodSquares = bl.getSurroundingSquares(1, 1);
+        
+        Assert.assertArrayEquals(methodSquares,originalSquares);
+    }
+    
+    @Test
+    public void getSurroundingSquaresReturnsNullIfGivenSquareIsNotInsideBoard() {
+        Assert.assertArrayEquals(null, bl.getSurroundingSquares(-1, -1));
+    }
 
 }

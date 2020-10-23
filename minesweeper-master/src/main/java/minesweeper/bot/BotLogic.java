@@ -10,11 +10,13 @@ import minesweeper.model.*;
 import minesweeper.structures.ListOfPairs;
 
 /**
- * This class is completely done by me
+ * This class is completely done by me and contains helping methods for the MyBot
+ * class
  * @author hiira
  */
 public class BotLogic {
     public Board board;
+    
     /**
      * Constructor for this class
      */
@@ -246,31 +248,5 @@ public class BotLogic {
         return unopened;
     }
     
-    /**
-     * Returns an opening move on the first unopened square that the method
-     * finds surrounding (x,y) IF the number of flagsaround the square in (x,y)
-     * match the number on the square
-     * @param numberOnSquare the number on the square in (x,y)
-     * @param x x-coordinate of the opened (numbered) cell on the gameboard
-     * @param y y-coordinate of the opened (numbered) cell on the gameboard
-     * @param squares a 3x3 grid of squares surrounding the square in (x,y) ((x,y) is in (1,1))
-     * @return opening move to the first unopened square it finds
-     */
-//    public Move openSurroundingSquaresIfRightNumberOfFlags(int numberOnSquare, int x, int y, Square[][] squares) {
-//        int flags = countFlaggedSurroundingSquares(squares);
-//                                    
-//        if (flags == numberOnSquare) {
-//            //If flags matched the number on the square, we can open all the surrounding unopened squares
-//            for (int n = 0; n < 3; n++) {
-//                for (int k = 0; k < 3; k++) {
-//                    if (squares[n][k] == null) {
-//                        continue;
-//                    }
-//                    if (!squares[n][k].isOpened() && !squares[n][k].isFlagged()) {
-//                        return new Move (MoveType.OPEN,x+n-1,y+k-1);
-//                    }
-//                }
-//            }
-//        }
-//    }
+
 }

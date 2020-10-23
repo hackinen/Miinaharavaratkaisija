@@ -138,9 +138,6 @@ public class MyBot implements Bot {
         ListOfPairs borderCells = bl.getListOfBorderCells(grid);
         
         for (int i = 0; i<borderCells.size(); i++) {
-//            System.out.println("");
-//            System.out.println(i+1 + ". yritys");
-            
             firstCell = borderCells.get(0);
             
             if (simulateMove(grid, (ListOfPairs) borderCells.clone())) {
@@ -233,20 +230,16 @@ public class MyBot implements Bot {
         grid[x][y] = 10;
         
         if (isFlagLegal && !isEmptyLegal) {
-            //System.out.println("ruutu "+x+","+y+" liputettiin");
             simulatedMove = new Move(MoveType.FLAG, x, y);
             return true;
         } else if (!isFlagLegal && isEmptyLegal) {
-            //System.out.println("ruutu "+x+","+y+" avattiin");
             simulatedMove = new Move(MoveType.OPEN, x, y);
             return true;
         } else if (isFlagLegal && isEmptyLegal) {
             //if both moves could be correct, guess and open the cell
-            //System.out.println("ruutu "+x+","+y+" arvattiin ja avattiin");
             simulatedMove = new Move(MoveType.OPEN, x, y);
             return !firstCell.equals(coordinates);
         } else {
-            //System.out.println("mentiin elseen");
             return false;
         }
         
@@ -254,7 +247,9 @@ public class MyBot implements Bot {
     
     /**
      * Returns a possible move depending on the current board state. NOTE: 
-     * Returns an ArrayList because this method was defined in the Bot interface
+     * Returns an ArrayList because this method was defined in the Bot interface.
+     * Regardless of the ArrayList, this method returns only one move (inside of the
+     * ArrayList)
      * @param board The current board state.
      * @return one Move (in an ArrayList because of the project base).
      */

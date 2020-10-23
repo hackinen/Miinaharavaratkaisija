@@ -142,4 +142,24 @@ public class ListOfPairsTest {
         
         assertEquals(list, list.clone());
     }
+    
+    @Test
+    public void testEqualsMethodWhenListsAreSame() {
+        list.add(new Pair(0, 0));
+        
+        ListOfPairs list2 = new ListOfPairs();
+        list2.add(new Pair(0, 0));
+        
+        assertTrue(list.equals(list2));
+    }
+    
+    @Test
+    public void testEqualsMethodWhenListsAreDifferent() {
+        list.add(new Pair(0, 0));
+        
+        ListOfPairs list2 = new ListOfPairs();
+        list2.add(new Pair(0, 1));
+        
+        assertFalse(list.equals(list2));
+    }
 }
