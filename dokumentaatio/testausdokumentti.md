@@ -8,9 +8,11 @@ Tällä hetkellä olen testannut luokkiani MyBot ja BotLogic sekä tietorakennet
 
 ### Testauskattavuus
 
-<img src="https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/misc/testikattavuus-vko6.png" width="750">
+<img src="https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/misc/testit-MyBot-lopullinen.png" width="750">
 
-<img src="https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/misc/testikattavuus-vko6-2.png" width="750">
+<img src="https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/misc/testit-BotLogic-lopullinen.png" width="750">
+
+<img src="https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/misc/testit-ListOfPairs-lopullinen.png" width="750">
 
 ## Tehokkuustestaus
 
