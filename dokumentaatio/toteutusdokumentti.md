@@ -12,7 +12,9 @@ Alla on esitetty miinaharavabotin pakkausrakenne, joka on varsin yksinkertainen:
 
 <img src="https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/misc/pakkaukset.jpg" width="750">
 
-Lisäksi seuraavassa luokkakaaviossa on vielä erikseen eriteltynä pakkausten sisältämät (minun tekemäni) luokat ja niiden väliset yhteyet:
+### Luokkakaavio
+
+Seuraavassa luokkakaaviossa on vielä erikseen eriteltynä pakkausten sisältämät luokat ja niiden väliset yhteyet. Olen merkinnyt luokkakaavioon ainoastaan minun tekemäni luokat, pakkaus minesweeper.bot sisältää myös projektipohjasta tulleita luokkia.
 
 <img src="https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/misc/luokkakaavio.jpg" width="750">
 
