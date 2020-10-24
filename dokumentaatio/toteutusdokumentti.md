@@ -40,4 +40,4 @@ Lisäksi arvaamista oltaisiin voitu parantaa lisämällä ohjelmaan todennäköi
 
 Lisäksi vinkkejä antavaan "Help (bot)"-toiminnallisuuteen olisi vielä voitu lisätä sellainen ominaisuus, että mikäli botti ei ole varma siirrostaan eli se joutuu itsekin arvaamaan, ei botti tällöin antaisi vinkkiä ollenkaan.
 
-Erityisesti luokan MyBot metodit makeMove ja simutaleMove jäivät kohtalaisen pitkiksi. Metodien rakenteen vuoksi ne olisi ollut (ainakin omasta mielestäni) erittäin hankalaa paloitella pienempiin osiin ja nämä pienemmät metodit olisivat vaatineet jo niin paljon parametreja ja muunkin koodin muokkaamista, minkä takia sitä en sitten enää ajanpuutteen lomassa tehnyt.
+Erityisesti luokan MyBot metodit makeMove ja simutaleMove jäivät kohtalaisen pitkiksi. Metodien rakenteen vuoksi ne olisi ollut (ainakin omasta mielestäni) erittäin hankalaa paloitella pienempiin osiin ja nämä pienemmät metodit olisivat vaatineet jo niin paljon parametreja ja muunkin koodin muokkaamista, minkä takia en sitten enää sitä ajanpuutteen lomassa tehnyt.
