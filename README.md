@@ -1,6 +1,6 @@
 # Miinaharavaratkaisija
 
-Miinaharavaratkaisija on Java-kielinen ohjelma, joka on toteutettu tietorakenteiden ja algoritmien ainepintojen harjotustyönä.
+Miinaharavaratkaisija on Java-kielinen ohjelma, joka on toteutettu tietorakenteiden ja algoritmien ainepintojen harjotustyönä. Projekti on toteutettu Gradle-projektina.
 
 
 ## Dokumentaatio
