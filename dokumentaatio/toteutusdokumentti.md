@@ -14,13 +14,13 @@ Alla on esitetty miinaharavabotin pakkausrakenne, joka on varsin yksinkertainen:
 
 ### Luokkakaavio
 
-Seuraavassa luokkakaaviossa on vielä erikseen eriteltynä pakkausten sisältämät luokat ja niiden väliset yhteyet. Olen merkinnyt luokkakaavioon ainoastaan minun tekemäni luokat, pakkaus minesweeper.bot sisältää myös projektipohjasta tulleita luokkia.
+Seuraavassa luokkakaaviossa on vielä erikseen eriteltynä pakkausten sisältämät luokat ja niiden väliset yhteydet. Olen merkinnyt luokkakaavioon ainoastaan minun tekemäni luokat, pakkaus minesweeper.bot sisältää myös projektipohjasta tulleita luokkia.
 
 <img src="https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/misc/luokkakaavio.jpg" width="750">
 
 ## Tilanteet, joissa on pakko arvata
 
-Maininnanarvoista on tosiaan se, että miinaharava on luonteeltaan sellainen peli, että erityisesti isoissa kentissä tulee vastaan tilanteita, joita ei edes algoritmikaan voi päätellä. Usen siis joko heti alussa tai kohtalaisen lopussa päädytään tilanteeseen, jossa bottikin joutuu arvaamaan, sillä yhtäkään siirtoa ei voi päätellä varmaksi.
+Maininnanarvoista on tosiaan se, että miinaharava on luonteeltaan sellainen peli, että erityisesti isoissa kentissä tulee vastaan tilanteita, joita ei edes algoritmikaan voi päätellä. Usein siis joko heti alussa tai kohtalaisen lopussa päädytään tilanteeseen, jossa bottikin joutuu arvaamaan, sillä yhtäkään siirtoa ei voida päätellä varmaksi.
 
 Tällaista arvaustilannetta ei botin toiminnasta välttämättä joka kerta huomaa, ellei tietenkin botti arvaa väärin, jolloin se häviää pelin. Kuitenkin isommissa kentissä botin häviämisprosentti alkaa olemaan jo kohtalaisen suuri.
 
@@ -40,4 +40,4 @@ Lisäksi arvaamista oltaisiin voitu parantaa lisämällä ohjelmaan todennäköi
 
 Lisäksi vinkkejä antavaan "Help (bot)"-toiminnallisuuteen olisi vielä voitu lisätä sellainen ominaisuus, että mikäli botti ei ole varma siirrostaan eli se joutuu itsekin arvaamaan, ei botti tällöin antaisi vinkkiä ollenkaan.
 
-Erityisesti luokan MyBot metodit makeMove ja simutaleMove jäivät kohtalaisen pitkiksi. Metodien rakenteen vuoksi ne olisi ollut (ainakin omasta mielestäni) erittäin hankalaa paloitella pienempiin osiin ja nämä pienemmät metodit olisivat vaatineet jo niin paljon parametreja ja muunkin koodin muokkaamista, minkä takia sitä en sitten tehnyt.
+Erityisesti luokan MyBot metodit makeMove ja simutaleMove jäivät kohtalaisen pitkiksi. Metodien rakenteen vuoksi ne olisi ollut (ainakin omasta mielestäni) erittäin hankalaa paloitella pienempiin osiin ja nämä pienemmät metodit olisivat vaatineet jo niin paljon parametreja ja muunkin koodin muokkaamista, minkä takia sitä en sitten enää ajanpuutteen lomassa tehnyt.
