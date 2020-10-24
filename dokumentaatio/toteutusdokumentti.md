@@ -8,8 +8,13 @@ Miinaharavaratkaisija on toteutettu osaksi valmista [miinaharavapohjaa](https://
 
 Botti on toteutettu projektipohjaan kokonaan pakkauksen minesweeper.bot alle. Lisäksi on luotu pakkaus minesweeper.structures, joka sisältää projektissa käytetyn titorakenteen ListOfPairs. Kaikki muut projektista löytyvät pakkaukset sisältöineen ovat peräisin projektipohjasta. Tein yhden muutoksen projektipohjaan: vaihdoin botin animaationopeudesta vastaavan liukusäätimen maksimiarvoa hieman suuremmaksi.
 
+Alla on esitetty miinaharavabotin pakkausrakenne, joka on varsin yksinkertainen:
+
 <img src="https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/misc/pakkaukset.jpg" width="750">
 
+Lisäksi seuraavassa luokkakaaviossa on vielä erikseen eriteltynä pakkausten sisältämät (minun tekemäni) luokat ja niiden väliset yhteyet:
+
+<img src="https://github.com/hackinen/Miinaharavaratkaisija/blob/master/dokumentaatio/misc/luokkakaavio.jpg" width="750">
 
 ## Tilanteet, joissa on pakko arvata
 

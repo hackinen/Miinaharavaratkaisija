@@ -4,7 +4,7 @@ Ohjelmaa on testattu automaattitestein JUnitilla sekä ohjelmoinnin aikana manua
 
 ## Automaattitestaus
 
-Tällä hetkellä olen testannut luokkiani MyBot ja BotLogic sekä tietorakennettani ListOfPairs, joiden testikattavuus löytyy alla olevasta kuvasta. Muut testit ovat valmiita testejä, jotka ovat tulleet projektipohjan mukana eivätkä liity minun tekemääni ohjelmakoodiin tai testaukseen.
+Olen testannut luokkiani MyBot ja BotLogic sekä tietorakennettani ListOfPairs JUnit-testein, joiden testikattavuus löytyy alla olevista kuvista.
 
 ### Testauskattavuus
 
