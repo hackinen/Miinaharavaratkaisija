@@ -5,7 +5,6 @@
  */
 package minesweeper.bot;
 
-import java.util.ArrayList;
 import minesweeper.model.*;
 import minesweeper.structures.ListOfPairs;
 
@@ -117,13 +116,9 @@ public class BotLogic {
                 
                 if (square.isOpened()) {
                     grid[i][j] = square.surroundingMines();
-                }
-                
-                else if (square.isFlagged()) {
+                } else if (square.isFlagged()) {
                     grid[i][j] = 9;
-                }
-                
-                else {
+                } else {
                     grid[i][j] = 10;
                 }
                 

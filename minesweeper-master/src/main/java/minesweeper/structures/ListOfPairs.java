@@ -100,7 +100,7 @@ public class ListOfPairs {
                 continue;
             }
             
-            newList[x-offset] = this.list[x];
+            newList[x - offset] = this.list[x];
         }
         
         this.list = newList;

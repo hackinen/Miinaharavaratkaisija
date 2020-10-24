@@ -1,10 +1,7 @@
 
 package minesweeper.bot;
 
-import java.util.HashSet;
-import java.util.Random;
 import java.util.ArrayList;
-import java.util.Arrays;
 import minesweeper.model.*;
 import minesweeper.structures.*;
 
@@ -15,7 +12,6 @@ import minesweeper.structures.*;
  */
 public class MyBot implements Bot {
 
-    private Random rng = new Random();
     private GameStats gameStats;
     private BotLogic bl;
     private Move simulatedMove; 
@@ -29,19 +25,19 @@ public class MyBot implements Bot {
     @Override
     public Move makeMove(Board board) {
         
-        //The first move
+        // The first move
         if (board.firstMove) {
-            return new Move(MoveType.OPEN, board.width/2, board.height/2);
+            return new Move(MoveType.OPEN, board.width / 2, board.height / 2);
         }
         
         this.bl = new BotLogic(board);
         
         for (int i = 0; i < board.width; i++) {
             for (int j = 0; j < board.height; j++) {
-                //Find an unopened square (i,j)
+                // Find an unopened square (i,j)
                 if (!board.getSquareAt(i, j).isOpened()) {
                     
-                    //Find out if there is an opened square (x,y) in the surrounding squares 
+                    // Find out if there is an opened square (x,y) in the surrounding squares 
                     Square[][] squares = bl.getSurroundingSquares(i, j);
                     
                     for (int x = 0; x < 3; x++) {
